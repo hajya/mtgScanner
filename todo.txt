@@ -1,0 +1,20 @@
+mtgScanner
+==========
+1.  Grab the picture
+2. Tranform and standarize
+	Tech: OpenCV
+3. Grayscale
+4. hash the image
+	Tech: Phash
+5. compare to all
+	FIGURE OUT ALGORITHM
+	
+	
+	
+	
+Prep:
+	1. Get a database of all hashed references
+			iterate through json
+			for each cardname pull the .jpg
+			hash and then store into ________
+				
