@@ -1,13 +1,23 @@
 mtgScanner
 ==========
-1.  Grab the picture
+1. Grab the picture
 2. Tranform and standarize
 	Tech: OpenCV
 3. Grayscale
-4. hash the image
-	Tech: Phash
+4. hash the image with a phash algorithm
+	Tech: ImageHash (part of PIL) || openCV with custom brewed phash
 5. compare to all
 	FIGURE OUT ALGORITHM
+	IDEAS:
+	1>
+		1. Group like hashes ahead of time with a clustering algorithm. 
+			(e.g. k-means using hamming distance as a comparison)
+		2. Foreach cluster:
+			Compare the card we are identifying to a representitive from the set.
+		3. Now that we have the most similar cluster we can search within that cluster to identify cards faster.
+		
+		If it's still performance heavy we can do sub clusters
+	2>
 	
 	
 	
@@ -16,5 +26,11 @@ Prep:
 	1. Get a database of all hashed references
 			iterate through json
 			for each cardname pull the .jpg
-			hash and then store into ________
-				
+			hash and then store into sqllite3
+	2.0 Run k-means to cluster the data to provide faster matches
+		Tech: scipy (?)
+		TODO: Determine proper number of clusters
+		
+	2.1 Alternitivly run scipy-cluster because it does an 
+		agglomerative clustering approach that doesn't require 
+		us to provide a number of clusters.
